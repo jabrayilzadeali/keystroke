@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-dvh flex gap-5">
+<body class="bg-gray-900 text-white h-dvh flex gap-5">
     <div data-words class="h-full center text-5xl flex">
         <letter data-word="0" data-letter="0">h</letter>
         <letter data-word="0" data-letter="1">e</letter>

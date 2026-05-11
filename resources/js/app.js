@@ -1,11 +1,15 @@
 import 'basecoat-css/all';
 
-
 const text = 'hello world'
 const words = text.split(' ')
 console.log(words)
 let wordCount = 0
 let letterPosition = 0
+
+function getElement(wordCount, letterPosition) {
+    return document.querySelector(`[data-word="${wordCount}"][data-letter="${letterPosition}"]`)
+
+}
 
 addEvent(document, "keypress", function (e) {
     e = e || window.event;
@@ -14,13 +18,10 @@ addEvent(document, "keypress", function (e) {
     const wordLength = word.length
     const letter = word[letterPosition]
     console.log(word, '|', letter , wordCount, letterPosition);
-    const elLetter = document.querySelector(`[data-word="${wordCount}"][data-letter="${letterPosition}"]`)
+    const elLetter = getElement(wordCount, letterPosition)
     if (key === letter) {
         console.log('correct key', key, word)
         elLetter.classList.add('text-green-500')
-
-        
-        letterPosition++
         if (letterPosition >= wordLength) {
             wordCount++
             letterPosition = 0
@@ -28,6 +29,7 @@ addEvent(document, "keypress", function (e) {
     } else {
         elLetter.classList.add('text-red-500')
     }
+    letterPosition++
     // use e.keyCode
 });
 
