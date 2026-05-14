@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer components {
+    .caret {
+        @apply w-[0.1rem] bg-yellow-500 absolute;
+    }
+
+}
